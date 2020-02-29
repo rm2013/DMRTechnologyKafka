@@ -432,3 +432,11 @@ body {
     font-size: 18px;
     text-decoration: underline;
 }
+
+.header .date {
+    right: 0px;
+    top: -45px;
+    left: 600px;
+    width: 50px;
+    font-size: 12px;
+}

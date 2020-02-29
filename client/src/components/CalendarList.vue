@@ -11,8 +11,10 @@
           <input class="new-calendarevent"
                  autofocus autocomplete="off"
                  :placeholder="this.inputPlaceholder"
-                 v-model="newCalendarEvent"
+                 v-model="newCalendarEvent.title"
                  @keyup.enter="addCalendarEvent">
+           <datepicker class="date" @selected="newCalendarEventDateChanged" v-model="newCalendarEvent.date"></datepicker>
+                
         </header>
         <section class="main" v-show="calendarevents.length" v-cloak>
           <input class="toggle-all" type="checkbox" v-model="allDone">
@@ -24,7 +26,7 @@
               <div class="view">
                 <input class="toggle" type="checkbox" v-model="calendarevent.completed" @change="completeCalendarEvent(calendarevent)">
                 <label @dblclick="editCalendarEvent(calendarevent)">{{ calendarevent.title }}</label>
-                <datepicker class="date" v-model="calendarevent.date" name="calendardate"></datepicker>
+                <datepicker class="date" @selected="calendareventdatechanged(calendarevent)" v-model="calendarevent.date" name="calendardate"></datepicker>
                 <button class="destroy" @click="removeCalendarEvent(calendarevent)"></button>
               </div>
               <input class="edit" type="text"
@@ -88,7 +90,7 @@
     data: function() {
       return {
         calendarevents: [],
-        newCalendarEvent: '',
+        newCalendarEvent: {title: '', date: new Date()},
         editedCalendarEvent: null,
         visibility: 'all',
         loading: true,
@@ -98,7 +100,17 @@
 
     mounted() {
       // inject some startup data
-      this.calendarevents = [{title: 'Submit Talk', date: new Date(2019,12,15), completed:false},{title: 'Prepare Talk', date: new Date(2020,2,2), completed:false}];
+      this.calendarevents = [
+          {
+            title: 'Submit Talk', 
+            date: new Date(2019,12,15), 
+            completed:false,
+          },
+          {
+              title: 'Prepare Talk', 
+              date: new Date(2020,2,2), 
+              completed:false,
+          }];
       // hide the loading message
       this.loading = false;
     },
@@ -141,17 +153,29 @@
     methods: {
 
       addCalendarEvent: function () {
-        var value = this.newCalendarEvent && this.newCalendarEvent.trim()
-        if (!value) {
+        var title = this.newCalendarEvent.title && this.newCalendarEvent.title.trim()
+        if (!title) {
           return
         }
 
+        var dateValue = this.newCalendarEvent.date;
+        if( !dateValue ) {
+            return;
+        }
+
         this.calendarevents.push({
-          title: value,
+          title: title,
+          date: dateValue,
           completed: false
         });
 
-        this.newCalendarEvent = ''
+        this.newCalendarEvent = {title: '', date: new Date()}
+      },
+
+      newCalendarEventDateChanged: function(newCalendarEventDate) {
+
+          this.newCalendarEvent.date = newCalendarEventDate;
+          this.addCalendarEvent()
       },
 
       setVisibility: function(vis) {
@@ -188,6 +212,9 @@
         calendarevent.title = this.beforeEditCache
       },
 
+      calendareventdatechanged: function(calendarevent) {
+          console.log(calendarevent);
+      },
       removeCompleted: function () {
         this.calendarevents = filters.active(this.calendarevents)
       },
