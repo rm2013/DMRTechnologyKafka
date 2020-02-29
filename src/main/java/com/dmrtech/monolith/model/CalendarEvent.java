@@ -24,6 +24,10 @@ public class CalendarEvent {
         this.details = details;
     }
 
+    public CalendarEvent() {
+
+    }
+
     public long getID() {
         return id;
     }
