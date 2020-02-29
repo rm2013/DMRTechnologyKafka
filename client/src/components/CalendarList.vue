@@ -24,7 +24,7 @@
               <div class="view">
                 <input class="toggle" type="checkbox" v-model="calendarevent.completed" @change="completeCalendarEvent(calendarevent)">
                 <label @dblclick="editCalendarEvent(calendarevent)">{{ calendarevent.title }}</label>
-                <span class="date">{{calendarevent.date}}</span>
+                <datepicker class="date" v-model="calendarevent.date" name="calendardate"></datepicker>
                 <button class="destroy" @click="removeCalendarEvent(calendarevent)"></button>
               </div>
               <input class="edit" type="text"
@@ -33,6 +33,7 @@
                      @blur="doneEdit(calendarevent)"
                      @keyup.enter="doneEdit(calendarevent)"
                      @keyup.esc="cancelEdit(calendarevent)">
+
             </li>
           </ul>
         </section>
@@ -97,7 +98,7 @@
 
     mounted() {
       // inject some startup data
-      this.calendarevents = [{title: 'Submit Talk', date: '2019-12-15', completed:false},{title: 'Prepare Talk', date: '2020-02-02', completed:false}];
+      this.calendarevents = [{title: 'Submit Talk', date: new Date(2019,12,15), completed:false},{title: 'Prepare Talk', date: new Date(2020,2,2), completed:false}];
       // hide the loading message
       this.loading = false;
     },
@@ -208,7 +209,7 @@
     }
   }
 
-  export default CalendarList
+  export default CalendarList;
 </script>
 
 <style>

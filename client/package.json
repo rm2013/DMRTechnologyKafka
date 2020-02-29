@@ -11,6 +11,7 @@
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
+    "vuejs-datepicker": "^1.6.2",
     "vuejs-logger": "^1.5.4"
   },
   "devDependencies": {

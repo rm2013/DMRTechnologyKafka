@@ -4,6 +4,7 @@ import App from './App'
 Vue.config.productionTip = false
 
 import VueLogger from 'vuejs-logger';
+import Datepicker from 'vuejs-datepicker';
 
 const options = {
   isEnabled: true,
@@ -16,6 +17,8 @@ const options = {
 };
 
 Vue.use(VueLogger, options);
+
+Vue.component('datepicker',Datepicker)
 
 /* eslint-disable no-new */
 new Vue({
