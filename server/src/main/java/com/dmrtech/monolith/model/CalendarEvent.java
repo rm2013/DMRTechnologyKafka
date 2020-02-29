@@ -14,13 +14,13 @@ public class CalendarEvent {
 
     private Date eventDate;
     private boolean allDayEvent;
-    private String summary;
+    private String title;
     private String details;
 
-    public CalendarEvent(Date eventDate, boolean allDayEvent, String summary, String details) {
+    public CalendarEvent(Date eventDate, boolean allDayEvent, String title, String details) {
         this.eventDate = eventDate;
         this.allDayEvent = allDayEvent;
-        this.summary = summary;
+        this.title = title;
         this.details = details;
     }
 
@@ -48,12 +48,12 @@ public class CalendarEvent {
         this.allDayEvent = allDayEvent;
     }
 
-    public String getSummary() {
-        return summary;
+    public String getTitle() {
+        return title;
     }
 
-    public void setSummary(String summary) {
-        this.summary = summary;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDetails() {

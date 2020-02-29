@@ -36,7 +36,7 @@ public class MonolithApplication {
         return args -> {
             Stream.of("Write introduction", "Create Sample App", "Introduce Kafka", "Study Vue.js", "Present at GOTO").forEach(name -> {
                 CalendarEvent calendarEvent = new CalendarEvent();
-                calendarEvent.setSummary(name);
+                calendarEvent.setTitle(name);
                 cal.set(Calendar.MONTH,currentMonth.getAndIncrement());
                 calendarEvent.setDetails(String.format("%s | %s | %s", name,name,name));
                 calendarEvent.setDate(cal.getTime());
