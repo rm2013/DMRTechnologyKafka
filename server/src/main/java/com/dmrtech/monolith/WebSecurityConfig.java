@@ -41,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity webSecurity) throws Exception {
-        webSecurity.ignoring().antMatchers(POST, "/**");
+        webSecurity.ignoring().antMatchers( "/**").and().ignoring();
     }
 
     @Bean

@@ -16,11 +16,11 @@
             v-model="newCalendarEvent.title"
             @keyup.enter="addCalendarEvent"
           />
-          <datepicker
+          <VueDatePicker
             class="date"
-            @selected="newCalendarEventDateChanged"
+            @onChange="newCalendarEventDateChanged"
             v-model="newCalendarEvent.date"
-          ></datepicker>
+          ></VueDatePicker>
         </header>
         <section class="main" v-show="calendarevents.length" v-cloak>
           <input class="toggle-all" type="checkbox" v-model="allDone" />
@@ -44,12 +44,12 @@
                 <label @dblclick="editCalendarEvent(calendarevent)">{{
                   calendarevent.title
                 }}</label>
-                <datepicker
+                <VueDatePicker
                   class="date"
-                  @selected="calendareventdatechanged(calendarevent)"
+                  @onChange="calendarEventDateSelected"
                   v-model="calendarevent.date"
                   name="calendardate"
-                ></datepicker>
+                ></VueDatePicker>
                 <button
                   class="destroy"
                   @click="removeCalendarEvent(calendarevent)"
@@ -242,15 +242,40 @@ const CalendarList = {
       this.visibility = vis;
     },
 
-    completeCalendarEvent(/*calendarevent*/) {},
+    completeCalendarEvent(calendarevent) {
+      CalendarApi.updateForId(
+        calendarevent.id,
+        calendarevent.title,
+        calendarevent.date,
+        calendarevent.completed
+      )
+        .then(response => {
+          this.$log.info("Item updated:", response.data);
+        })
+        .catch(error => {
+          this.$log.debug(error);
+          calendarevent.completed = !calendarevent.completed;
+          this.error = "Failed to update calendar event";
+        });
+    },
 
     removeCalendarEvent: function(calendarevent) {
-      // notice NOT using "=>" syntax
-      this.calendarevents.splice(this.calendarevents.indexOf(calendarevent), 1);
+      CalendarApi.removeForId(calendarevent.id)
+        .then(() => {
+          this.$log.debug("Item removed:", calendarevent);
+          this.calendarevents.splice(
+            this.calendarevents.indexOf(calendarevent),
+            1
+          );
+        })
+        .catch(error => {
+          this.$log.debug(error);
+          this.error = "Failed to remove calendarevent";
+        });
     },
 
     editCalendarEvent: function(calendarevent) {
-      this.beforeEditCache = calendarevent.title;
+      this.beforeEditCache = calendarevent;
       this.editedCalendarEvent = calendarevent;
     },
 
@@ -258,9 +283,23 @@ const CalendarList = {
       if (!this.editedCalendarEvent) {
         return;
       }
-
-      this.editedCalendarEvent = null;
-      calendarevent.title = calendarevent.title.trim();
+      this.$log.info("Item updated:", calendarevent);
+      CalendarApi.updateForId(
+        calendarevent.id,
+        calendarevent.title.trim(),
+        calendarevent.date,
+        calendarevent.completed
+      )
+        .then(response => {
+          this.$log.info("Item updated:", response.data);
+          this.editedCalendarEvent = null;
+          calendarevent.title = calendarevent.title.trim();
+        })
+        .catch(error => {
+          this.$log.debug(error);
+          this.cancelEdit(calendarevent);
+          this.error = "Failed to update calendarevent";
+        });
 
       if (!calendarevent.title) {
         this.removeCalendarEvent(calendarevent);
@@ -269,11 +308,14 @@ const CalendarList = {
 
     cancelEdit: function(calendarevent) {
       this.editedCalendarEvent = null;
-      calendarevent.title = this.beforeEditCache;
+      calendarevent.title = this.beforeEditCache.title;
     },
 
-    calendareventdatechanged: function(calendarevent) {
-      console.log(calendarevent);
+    calendarEventDateOpened: function(calendarEvent) {
+        this.editCalendarEvent(calendarEvent)
+    },
+    calendarEventDateSelected: function() {
+      this.saveAll();
     },
     removeCompleted: function() {
       this.calendarevents = filters.active(this.calendarevents);
@@ -281,7 +323,14 @@ const CalendarList = {
 
     handleErrorClick: function() {
       this.error = null;
+    },
+    saveAll: function() {
+        this.calendarevents.forEach(calendarEvent=>{
+            this.editedCalendarEvent = calendarEvent;
+            this.doneEdit(calendarEvent);
+        })
     }
+
   },
 
   // a custom directive to wait for the DOM to be updated
