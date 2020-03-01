@@ -1,0 +1,7 @@
+server:
+    port: 9000
+
+security:
+  basic:
+    enable: false
+  ignored: /**
