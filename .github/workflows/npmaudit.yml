@@ -13,10 +13,10 @@ jobs:
   scan:
     name: npm audit
     runs-on: ubuntu-latest
-    working-directory: ./server
     steps:
       - uses: actions/checkout@v2
       - name: install dependencies
+        working-directory: ./client
         run: npm ci
       - uses: oke-py/npm-audit-action@v1.1.0
         with:
