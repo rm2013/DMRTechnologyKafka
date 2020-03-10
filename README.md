@@ -4,7 +4,7 @@ Build Status:
 To run the server: 
 ~~~~
 cd server 
-mvn springboot:run
+mvn spring-boot:run
 ~~~~
 
 To run the client:
