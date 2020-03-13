@@ -31,6 +31,8 @@ public class CalendarEvent {
     public long getID() {
         return id;
     }
+    public void setId(Long id) { this.id = id; }
+
 
     public Date getDate() {
         return eventDate;
@@ -63,4 +65,5 @@ public class CalendarEvent {
     public void setDetails(String details) {
         this.details = details;
     }
+
 }

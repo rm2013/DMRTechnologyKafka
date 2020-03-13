@@ -114,7 +114,7 @@
 </template>
 
 <script>
-import CalendarApi from "../CalendarApi";
+import CalendarService from "../services/calendar.service";
 
 // visibility filters
 let filters = {
@@ -153,7 +153,7 @@ const CalendarList = {
   },
 
   mounted() {
-    CalendarApi.getAll()
+    CalendarService.getAll()
       .then(response => {
         this.$log.debug("Data loaded: ", response.data);
         this.calendarevents = response.data;
@@ -203,7 +203,7 @@ const CalendarList = {
   // methods that implement data logic.
   // note there's no DOM manipulation here at all.
   methods: {
-    addCalendarEvent: function() {
+    addCalendarEvent() {
       var title =
         this.newCalendarEvent.title && this.newCalendarEvent.title.trim();
       if (!title) {
@@ -215,7 +215,7 @@ const CalendarList = {
         return;
       }
 
-      CalendarApi.createNew(title, dateValue, false)
+      CalendarService.createNew(title, dateValue, false)
         .then(response => {
           this.$log.debug("New item created:", response);
           this.calendarevents.push({
@@ -243,7 +243,7 @@ const CalendarList = {
     },
 
     completeCalendarEvent(calendarevent) {
-      CalendarApi.updateForId(
+      CalendarService.updateForId(
         calendarevent.id,
         calendarevent.title,
         calendarevent.date,
@@ -260,7 +260,7 @@ const CalendarList = {
     },
 
     removeCalendarEvent: function(calendarevent) {
-      CalendarApi.removeForId(calendarevent.id)
+        CalendarService.removeForId(calendarevent.id)
         .then(() => {
           this.$log.debug("Item removed:", calendarevent);
           this.calendarevents.splice(
@@ -284,7 +284,7 @@ const CalendarList = {
         return;
       }
       this.$log.info("Item updated:", calendarevent);
-      CalendarApi.updateForId(
+      CalendarService.updateForId(
         calendarevent.id,
         calendarevent.title.trim(),
         calendarevent.date,

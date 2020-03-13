@@ -2,6 +2,7 @@ module.exports = {
   runtimeCompiler: true,
   configureWebpack: {
     // other webpack options to merge in ...
+    devtool: 'source-map'
   },
   // devServer Options don't belong into `configureWebpack`
   devServer: {

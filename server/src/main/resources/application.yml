@@ -16,3 +16,8 @@ spring:
     username: sa
     password:
     driverClassName: org.h2.Driver
+
+DMRTechnology:
+  app:
+    jwtSecret: vAaQfCJkzqP8cFALajRpv8ErmJoC2QnZECo0/yEGw6lmTz7BEcWX5qj46jJG34VVUS4WkarBzdOYa6ObbqA8yg==
+    jwtExpirationMs: 86400000
