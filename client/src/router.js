@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
+import Users from './views/Users.vue';
 import Login from './views/Login.vue';
 import Register from './views/Register.vue';
 
@@ -17,6 +18,10 @@ export const router = new Router({
     {
       path: '/home',
       component: Home
+    },
+    {
+      path: '/users',
+      component: Users
     },
     {
       path: '/login',

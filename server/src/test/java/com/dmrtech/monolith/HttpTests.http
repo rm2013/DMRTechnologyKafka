@@ -5,15 +5,6 @@
 # * 'gtrp' and 'gtr' create a GET request with or without query parameters;
 # * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
-GET localhost:9000/api/test/all
-Accept: application/json
-
-###
-
-GET http://localhost:9000/api/test/user
-Content-Type: application/json
-
-###
 
 POST http://localhost:9000/api/auth/signup
 Content-Type: application/json
@@ -56,13 +47,6 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:9000/api/test/user
-Accept: application/json
-Authorization: Bearer {{AUTH_TOKEN}}
-
-
-###
-
 GET http://localhost:9000/api/calendarevents/
 Accept: application/json
 Authorization: Bearer {{AUTH_TOKEN}}
@@ -80,5 +64,35 @@ Authorization: Bearer {{AUTH_TOKEN}}
 Content-Type: application/json
 
 {"title":"test addoueaeu","date":"2020-03-13T02:29:52.710Z","completed":false}
+
+###
+
+GET http://localhost:9000/users/
+Authorization: Bearer {{AUTH_TOKEN}}
+Content-Type: application/json
+
+###
+
+GET http://localhost:9000/users/1
+Authorization: Bearer {{AUTH_TOKEN}}
+Content-Type: application/json
+
+###
+
+
+PUT http://localhost:9000/users/2
+Authorization: Bearer {{AUTH_TOKEN}}
+Content-Type: application/json
+
+{
+  "username": "2user",
+  "email": "test@2testuser2.com",
+  "password": "12345678"
+}
+
+###
+
+DELETE http://localhost:9000/users/1
+Authorization: Bearer {{AUTH_TOKEN}}
 
 ###

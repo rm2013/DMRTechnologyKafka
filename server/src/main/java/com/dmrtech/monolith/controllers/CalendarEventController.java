@@ -3,12 +3,8 @@ package com.dmrtech.monolith.controllers;
 import com.dmrtech.monolith.model.CalendarEvent;
 import com.dmrtech.monolith.repository.CalendarEventRepository;
 import javassist.NotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -44,7 +40,7 @@ public class CalendarEventController {
 
     @PutMapping("/{id}")
     @PreAuthorize("hasAuthority('USER')")
-    CalendarEvent replaceEmployee(@RequestBody CalendarEvent newCalendarEvent, @PathVariable Long id) {
+    CalendarEvent update(@RequestBody CalendarEvent newCalendarEvent, @PathVariable Long id) {
 
         return calendarEventRepository.findById(id)
                 .map(calendarEvent -> {
