@@ -33,7 +33,7 @@ public class MonolithApplication {
         cal.set(Calendar.DAY_OF_MONTH, 1);
         AtomicInteger currentMonth = new AtomicInteger();
 
-        return args -> {
+        return args ->
             Stream.of("Write introduction", "Create Sample App", "Introduce Kafka", "Study Vue.js", "Present at GOTO").forEach(name -> {
                 CalendarEvent calendarEvent = new CalendarEvent();
                 calendarEvent.setTitle(name);
@@ -42,8 +42,6 @@ public class MonolithApplication {
                 calendarEvent.setDate(cal.getTime());
                 repository.save(calendarEvent);
             });
-            repository.findAll().forEach(System.out::println);
-        };
     }
 
     // Fix the CORS errors

@@ -27,20 +27,20 @@ public class CalendarEventController {
 
     @GetMapping("/")
     @PreAuthorize("hasAuthority('USER')")
-    Iterable<CalendarEvent> all() {
+    public Iterable<CalendarEvent> all() {
         return calendarEventRepository.findAll();
     }
 
 
     @PostMapping("/")
     @PreAuthorize("hasAuthority('USER')")
-    CalendarEvent calendarEvent(@RequestBody CalendarEvent calendarEvent) {
+    public CalendarEvent calendarEvent(@RequestBody CalendarEvent calendarEvent) {
         return calendarEventRepository.save(calendarEvent);
     }
 
     @PutMapping("/{id}")
     @PreAuthorize("hasAuthority('USER')")
-    CalendarEvent update(@RequestBody CalendarEvent newCalendarEvent, @PathVariable Long id) {
+    public CalendarEvent update(@RequestBody CalendarEvent newCalendarEvent, @PathVariable Long id) {
 
         return calendarEventRepository.findById(id)
                 .map(calendarEvent -> {
@@ -59,7 +59,7 @@ public class CalendarEventController {
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('USER')")
-    void delete(@PathVariable Long id) {
+    public void delete(@PathVariable Long id) {
         calendarEventRepository.deleteById(id);
     }
 }

@@ -1,8 +1,8 @@
 package com.dmrtech.monolith.payload.request;
 
-import java.util.Set;
-
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class SignupRequest {
     @NotBlank
@@ -13,8 +13,6 @@ public class SignupRequest {
     @Size(max = 50)
     @Email
     private String email;
-
-    private Set<String> role;
 
     @NotBlank
     @Size(min = 6, max = 40)

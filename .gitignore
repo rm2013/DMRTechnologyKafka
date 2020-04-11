@@ -33,3 +33,6 @@ build/
 
 ### Maven wrapper ####
 .mvn/
+
+### parasoft results ###
+server/tracer_*
