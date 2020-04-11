@@ -80,19 +80,3 @@ Content-Type: application/json
 ###
 
 
-PUT http://localhost:9000/users/2
-Authorization: Bearer {{AUTH_TOKEN}}
-Content-Type: application/json
-
-{
-  "username": "2user",
-  "email": "test@2testuser2.com",
-  "password": "12345678"
-}
-
-###
-
-DELETE http://localhost:9000/users/1
-Authorization: Bearer {{AUTH_TOKEN}}
-
-###
