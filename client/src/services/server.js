@@ -1,2 +1,2 @@
-let host = 'localhost:9000';
+let host = 'http://localhost:9000';
 export { host };

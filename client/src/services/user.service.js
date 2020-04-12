@@ -2,7 +2,7 @@ import axios from 'axios';
 import authHeader from './auth-header';
 import { host } from './server';
 
-const SERVER_URL = 'http://' + host + '/api/users/';
+const SERVER_URL = host + '/api/users/';
 
 class UserService {
   getAll() {
