@@ -1,7 +1,8 @@
 import axios from 'axios'
 import authHeader from './auth-header';
+import { host } from './server';
 
-const SERVER_URL = 'http://localhost:9000/api/calendarevents/';
+const SERVER_URL = host + '/api/calendarevents/';
 
 
 class CalendarService {
