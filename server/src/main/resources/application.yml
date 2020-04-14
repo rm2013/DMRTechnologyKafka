@@ -17,6 +17,11 @@ spring:
     password:
     driverClassName: org.h2.Driver
 
+kafka:
+  kafkaBroker: localhost:9092
+  calendarItemTopicName: calendar-items
+  consumerGroupName: calendar-items-event-consumer
+
 DMRTechnology:
   app:
     jwtSecret: vAaQfCJkzqP8cFALajRpv8ErmJoC2QnZECo0/yEGw6lmTz7BEcWX5qj46jJG34VVUS4WkarBzdOYa6ObbqA8yg==

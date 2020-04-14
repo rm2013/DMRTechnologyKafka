@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class CalendarEvent {
+public class CalendarItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -17,14 +17,14 @@ public class CalendarEvent {
     private String title;
     private String details;
 
-    public CalendarEvent(Date eventDate, boolean allDayEvent, String title, String details) {
+    public CalendarItem(Date eventDate, boolean allDayEvent, String title, String details) {
         this.eventDate = eventDate;
         this.allDayEvent = allDayEvent;
         this.title = title;
         this.details = details;
     }
 
-    public CalendarEvent() {
+    public CalendarItem() {
 
     }
 

@@ -1,6 +1,6 @@
 package com.dmrtech.endstate.repository;
 
-import com.dmrtech.endstate.model.CalendarEvent;
+import com.dmrtech.endstate.model.CalendarItem;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,27 +19,27 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class CalendarEventRepositoryTest {
+public class CalendarItemRepositoryTest {
 
     @Autowired
     private TestEntityManager entityManager;
 
     @Autowired
-    private CalendarEventRepository calendarEventRepository;
+    private CalendarItemRepository calendarItemRepository;
 
     @Test
-    public void whenFindByIDthenReturnCalendarEvent() {
+    public void whenFindByIDthenReturnCalendarItem() {
         // given
-        CalendarEvent calendarEvent = new CalendarEvent(getNewYearsDay(2000),
+        CalendarItem calendarItem = new CalendarItem(getNewYearsDay(2000),
                 true,
                 "new years",
                 "new millenium details");
-        entityManager.persist(calendarEvent);
+        entityManager.persist(calendarItem);
         entityManager.flush();
 
         // when
         //CalendarEvent found =
-        Optional<CalendarEvent> returned = calendarEventRepository.findById(calendarEvent.getID());
+        Optional<CalendarItem> returned = calendarItemRepository.findById(calendarItem.getID());
 
         // then
         assertThat(returned.isPresent(), is(equalTo(true)));
@@ -49,20 +49,20 @@ public class CalendarEventRepositoryTest {
     public void whenFindAllthenReturnAllItems() {
         // given
         for(int i = 0; i < 10; i++) {
-            CalendarEvent calendarEvent = new CalendarEvent(getNewYearsDay(2000),
+            CalendarItem calendarItem = new CalendarItem(getNewYearsDay(2000),
                     true,
                     "new years",
                     "new millenium details");
-            entityManager.persist(calendarEvent);
+            entityManager.persist(calendarItem);
             entityManager.flush();
         }
 
         // when
         //CalendarEvent found =
-        Iterable<CalendarEvent> results = calendarEventRepository.findAll();
+        Iterable<CalendarItem> results = calendarItemRepository.findAll();
 
         int count = 0;
-        for(CalendarEvent currentEvent:results) {
+        for(CalendarItem currentEvent:results) {
             count++;
         }
 

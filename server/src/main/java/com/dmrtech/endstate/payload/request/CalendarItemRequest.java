@@ -3,7 +3,7 @@ package com.dmrtech.endstate.payload.request;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
-public class CalendarEventRequest {
+public class CalendarItemRequest {
     private long id;
 
     public long getId() {

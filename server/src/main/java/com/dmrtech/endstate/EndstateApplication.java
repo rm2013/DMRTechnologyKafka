@@ -1,7 +1,7 @@
 package com.dmrtech.endstate;
 
-import com.dmrtech.endstate.model.CalendarEvent;
-import com.dmrtech.endstate.repository.CalendarEventRepository;
+import com.dmrtech.endstate.model.CalendarItem;
+import com.dmrtech.endstate.repository.CalendarItemRepository;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,7 +26,7 @@ public class EndstateApplication {
 
     // Bootstrap some test data into the in-memory database
     @Bean
-    ApplicationRunner init(CalendarEventRepository repository) {
+    ApplicationRunner init(CalendarItemRepository repository) {
 
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, 2020);
@@ -35,12 +35,12 @@ public class EndstateApplication {
 
         return args ->
             Stream.of("Write introduction", "Create Sample App", "Introduce Kafka", "Study Vue.js", "Present at GOTO").forEach(name -> {
-                CalendarEvent calendarEvent = new CalendarEvent();
-                calendarEvent.setTitle(name);
+                CalendarItem calendarItem = new CalendarItem();
+                calendarItem.setTitle(name);
                 cal.set(Calendar.MONTH,currentMonth.getAndIncrement());
-                calendarEvent.setDetails(String.format("%s | %s | %s", name,name,name));
-                calendarEvent.setDate(cal.getTime());
-                repository.save(calendarEvent);
+                calendarItem.setDetails(String.format("%s | %s | %s", name,name,name));
+                calendarItem.setDate(cal.getTime());
+                repository.save(calendarItem);
             });
     }
 
