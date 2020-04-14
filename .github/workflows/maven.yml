@@ -15,6 +15,6 @@ jobs:
         java-version: 11
     - name: Build with Maven
       working-directory: ./server
-      run: mvn -B package -Dsonar.login=${{ secrets.SONAR_TOKEN }} --file pom.xml clean verify sonar:sonar
+      run: mvn -Dsonar.login=${{ secrets.SONAR_TOKEN }} --file pom.xml clean verify sonar:sonar
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
