@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.dmrtech</groupId>
-    <artifactId>monolith</artifactId>
+    <artifactId>endstate</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>monolith</name>
+    <name>endstate</name>
     <description>Derek Rashid and Matt's kafka microservice for GOTO 2020.</description>
 
     <properties>
