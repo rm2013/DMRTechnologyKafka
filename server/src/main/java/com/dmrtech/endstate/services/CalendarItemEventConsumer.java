@@ -8,7 +8,8 @@ import org.springframework.kafka.annotation.KafkaListener;
 public class CalendarItemEventConsumer {
 
     private static final Logger logger = LoggerFactory.getLogger(CalendarItemEventConsumer.class);
-    @KafkaListener(topics = "${kafka.calendarItemTopicName}", containerFactory = "calendarItemEventConsumerFactory")
+
+    @KafkaListener(id="calendaritems", topics = "${kafka.calendarItemTopicName}",autoStartup = "true")
     public void calendarItemEventListener(CalendarItemEvent calendarItemEvent) {
         logger.debug("received message {}", calendarItemEvent);
     }
