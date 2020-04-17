@@ -33,7 +33,7 @@ public class KafkaConsumerConfig {
     KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, CalendarItemEvent>> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, CalendarItemEvent> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
-        factory.setConcurrency(3);
+        factory.setConcurrency(1);
         factory.getContainerProperties().setPollTimeout(3000);
         return factory;
     }
@@ -48,6 +48,8 @@ public class KafkaConsumerConfig {
         Map<String, Object> props = new HashMap<>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, kafkaBroker);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, kafkaConsumerGroupName + UUID.randomUUID());
+        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, CalendarItemEvent.class);
         return props;
     }
 }

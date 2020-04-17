@@ -66,6 +66,73 @@ Content-Type: application/json
 {"title":"test addoueaeu","date":"2020-03-13T02:29:52.710Z","completed":false}
 
 ###
+POST http://localhost:9000/api/calendarevents/
+Authorization: Bearer {{AUTH_TOKEN}}
+Content-Type: application/json
+
+  {
+    "allDayEvent": false,
+    "title": "Write introduction",
+    "details": "Write introduction | Write introduction | Write introduction",
+    "date": "2020-01-02T02:16:41.893+0000"
+  }
+
+###
+POST http://localhost:9000/api/calendarevents/
+Authorization: Bearer {{AUTH_TOKEN}}
+Content-Type: application/json
+
+  {
+    "allDayEvent": false,
+    "title": "Create Sample App",
+    "details": "Create Sample App | Create Sample App | Create Sample App",
+    "date": "2020-02-02T02:16:41.893+0000"
+  }
+
+###
+POST http://localhost:9000/api/calendarevents/
+Authorization: Bearer {{AUTH_TOKEN}}
+Content-Type: application/json
+
+  {
+    "allDayEvent": false,
+    "title": "Introduce Kafka",
+    "details": "Introduce Kafka | Introduce Kafka | Introduce Kafka",
+    "date": "2020-03-02T02:16:41.893+0000"
+  }
+
+###
+POST http://localhost:9000/api/calendarevents/
+Authorization: Bearer {{AUTH_TOKEN}}
+Content-Type: application/json
+  {
+    "allDayEvent": false,
+    "title": "Study Vue.js",
+    "details": "Study Vue.js | Study Vue.js | Study Vue.js",
+    "date": "2020-04-02T01:16:41.893+0000"
+  }
+
+###
+POST http://localhost:9000/api/calendarevents/
+Authorization: Bearer {{AUTH_TOKEN}}
+Content-Type: application/json
+
+{
+    "allDayEvent": false,
+    "title": "Present at GOTO",
+    "details": "Present at GOTO",
+    "date": "2020-05-01T01:16:41.893+0000"
+  }
+
+
+###
+POST http://localhost:9000/api/calendarevents/
+Authorization: Bearer {{AUTH_TOKEN}}
+Content-Type: application/json
+
+{"title":"hello worldu","date":"2020-03-13T02:29:52.710Z","completed":false}
+
+###
 
 GET http://localhost:9000/users/
 Authorization: Bearer {{AUTH_TOKEN}}
