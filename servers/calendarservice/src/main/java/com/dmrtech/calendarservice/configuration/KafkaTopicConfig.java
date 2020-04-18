@@ -1,4 +1,4 @@
-package com.dmrtech.calendarapp.configuration;
+package com.dmrtech.calendarservice.configuration;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;

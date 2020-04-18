@@ -1,10 +1,9 @@
 server:
-    port: 9000
+    port: 9001
 
 security:
   basic:
     enable: false
-  ignored: /**
 
 spring:
   h2:
@@ -12,7 +11,7 @@ spring:
       enabled: true
       path: /h2
   datasource:
-    url: jdbc:h2:file:~/userservice
+    url: jdbc:h2:file:~/calendarservice
     username: sa
     password:
     driverClassName: org.h2.Driver

@@ -1,6 +1,6 @@
-package com.dmrtech.calendarapp.repository;
+package com.dmrtech.calendarservice.repository;
 
-import com.dmrtech.calendarapp.model.CalendarItem;
+import com.dmrtech.calendarservice.model.CalendarItem;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.stereotype.Component;

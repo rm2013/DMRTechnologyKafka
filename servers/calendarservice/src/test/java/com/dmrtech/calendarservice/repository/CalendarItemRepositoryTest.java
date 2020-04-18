@@ -1,6 +1,6 @@
-package com.dmrtech.calendarapp.repository;
+package com.dmrtech.calendarservice.repository;
 
-import com.dmrtech.calendarapp.model.CalendarItem;
+import com.dmrtech.calendarservice.model.CalendarItem;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

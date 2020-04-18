@@ -47,26 +47,31 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:9000/api/calendaritems/
+GET http://localhost:9001/api/calendaritems/
+Accept: application/json
+
+###
+
+GET http://localhost:9001/api/calendaritems/
 Accept: application/json
 Authorization: Bearer {{AUTH_TOKEN}}
 
 ###
 
-DELETE http://localhost:9000/api/calendaritems/5
+DELETE http://localhost:9001/api/calendaritems/5
 Accept: application/json
 Authorization: Bearer {{AUTH_TOKEN}}
 
 ###
 
-PUT http://localhost:9000/api/calendaritems/1
+PUT http://localhost:9001/api/calendaritems/1
 Authorization: Bearer {{AUTH_TOKEN}}
 Content-Type: application/json
 
 {"title":"test addoueaeu","date":"2020-03-13T02:29:52.710Z","completed":false}
 
 ###
-POST http://localhost:9000/api/calendaritems/
+POST http://localhost:9001/api/calendaritems/
 Authorization: Bearer {{AUTH_TOKEN}}
 Content-Type: application/json
 
@@ -78,7 +83,7 @@ Content-Type: application/json
   }
 
 ###
-POST http://localhost:9000/api/calendaritems/
+POST http://localhost:9001/api/calendaritems/
 Authorization: Bearer {{AUTH_TOKEN}}
 Content-Type: application/json
 
@@ -90,7 +95,7 @@ Content-Type: application/json
   }
 
 ###
-POST http://localhost:9000/api/calendaritems/
+POST http://localhost:9001/api/calendaritems/
 Authorization: Bearer {{AUTH_TOKEN}}
 Content-Type: application/json
 
@@ -102,7 +107,7 @@ Content-Type: application/json
   }
 
 ###
-POST http://localhost:9000/api/calendaritems/
+POST http://localhost:9001/api/calendaritems/
 Authorization: Bearer {{AUTH_TOKEN}}
 Content-Type: application/json
   {
@@ -113,7 +118,7 @@ Content-Type: application/json
   }
 
 ###
-POST http://localhost:9000/api/calendaritems/
+POST http://localhost:9001/api/calendaritems/
 Authorization: Bearer {{AUTH_TOKEN}}
 Content-Type: application/json
 
@@ -126,7 +131,7 @@ Content-Type: application/json
 
 
 ###
-POST http://localhost:9000/api/calendaritems/
+POST http://localhost:9001/api/calendaritems/
 Authorization: Bearer {{AUTH_TOKEN}}
 Content-Type: application/json
 

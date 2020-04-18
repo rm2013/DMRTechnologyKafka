@@ -1,8 +1,8 @@
-package com.dmrtech.calendarapp.services;
+package com.dmrtech.calendarservice.services;
 
-import com.dmrtech.calendarapp.model.CalendarItem;
-import com.dmrtech.calendarapp.model.CalendarItemEvent;
-import com.dmrtech.calendarapp.repository.CalendarItemRepository;
+import com.dmrtech.calendarservice.model.CalendarItem;
+import com.dmrtech.calendarservice.model.CalendarItemEvent;
+import com.dmrtech.calendarservice.repository.CalendarItemRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;

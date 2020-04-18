@@ -1,10 +1,10 @@
-package com.dmrtech.calendarapp.controllers;
+package com.dmrtech.calendarservice.controllers;
 
-import com.dmrtech.calendarapp.model.CalendarItem;
-import com.dmrtech.calendarapp.model.CalendarItemEvent;
-import com.dmrtech.calendarapp.payload.request.CalendarItemRequest;
-import com.dmrtech.calendarapp.services.CalendarItemEventProducer;
-import com.dmrtech.calendarapp.services.CalendarItemService;
+import com.dmrtech.calendarservice.model.CalendarItem;
+import com.dmrtech.calendarservice.model.CalendarItemEvent;
+import com.dmrtech.calendarservice.payload.request.CalendarItemRequest;
+import com.dmrtech.calendarservice.services.CalendarItemEventProducer;
+import com.dmrtech.calendarservice.services.CalendarItemService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 

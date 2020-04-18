@@ -1,4 +1,4 @@
-package com.dmrtech.calendarapp.model;
+package com.dmrtech.calendarservice.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

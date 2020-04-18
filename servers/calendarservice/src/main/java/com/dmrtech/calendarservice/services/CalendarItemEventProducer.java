@@ -1,6 +1,6 @@
-package com.dmrtech.calendarapp.services;
+package com.dmrtech.calendarservice.services;
 
-import com.dmrtech.calendarapp.model.CalendarItemEvent;
+import com.dmrtech.calendarservice.model.CalendarItemEvent;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;

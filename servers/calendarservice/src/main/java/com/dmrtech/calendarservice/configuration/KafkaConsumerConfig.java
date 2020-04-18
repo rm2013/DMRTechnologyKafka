@@ -1,6 +1,6 @@
-package com.dmrtech.calendarapp.configuration;
+package com.dmrtech.calendarservice.configuration;
 
-import com.dmrtech.calendarapp.model.CalendarItemEvent;
+import com.dmrtech.calendarservice.model.CalendarItemEvent;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;

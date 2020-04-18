@@ -1,7 +1,7 @@
-package com.dmrtech.calendarapp.controllers;
+package com.dmrtech.calendarservice.controllers;
 
-import com.dmrtech.calendarapp.model.CalendarItem;
-import com.dmrtech.calendarapp.repository.CalendarItemRepository;
+import com.dmrtech.calendarservice.model.CalendarItem;
+import com.dmrtech.calendarservice.repository.CalendarItemRepository;
 import javassist.NotFoundException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

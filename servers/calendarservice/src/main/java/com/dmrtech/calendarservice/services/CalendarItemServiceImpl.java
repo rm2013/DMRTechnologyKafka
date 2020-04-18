@@ -1,7 +1,7 @@
-package com.dmrtech.calendarapp.services;
+package com.dmrtech.calendarservice.services;
 
-import com.dmrtech.calendarapp.model.CalendarItem;
-import com.dmrtech.calendarapp.payload.request.CalendarItemRequest;
+import com.dmrtech.calendarservice.model.CalendarItem;
+import com.dmrtech.calendarservice.payload.request.CalendarItemRequest;
 import org.springframework.stereotype.Service;
 
 @Service
