@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { host } from './server';
+import { userServiceHost } from './server';
 
-const API_URL = host + '/api/auth/';
+const API_URL = userServiceHost + '/api/auth/';
 
 class AuthService {
   login(user) {
