@@ -67,7 +67,7 @@ public class CalendarItemRepositoryTest {
         }
 
         // then
-        assertThat(count, is(equalTo(15)));
+        assertThat(count, is(equalTo(10)));
     }
 
     private Date getNewYearsDay(int year) {

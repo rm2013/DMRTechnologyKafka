@@ -84,4 +84,14 @@ class UserDetailsImplTest {
         UserDetailsImpl secondInstance = new UserDetailsImpl(321L, "my_username", "email@test.com", "password");
         assertThat(classUnderTest.equals(secondInstance), is(false));
     }
+
+    @Test
+    void testEqualsIfTheSameObject() {
+        assertThat(classUnderTest.equals(classUnderTest), is(true));
+    }
+
+    @Test
+    void testEqualsHandlingOfNull() {
+        assertThat(classUnderTest.equals(null), is(false));
+    }
 }
