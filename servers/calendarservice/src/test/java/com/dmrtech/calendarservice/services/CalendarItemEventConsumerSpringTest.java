@@ -14,6 +14,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 
+import java.util.UUID;
+
 
 /**
  * Parasoft Jtest UTA: Test class for CalendarItemEventConsumer
@@ -41,7 +43,7 @@ public class CalendarItemEventConsumerSpringTest {
         CalendarItemEvent calendarItemEvent = new CalendarItemEvent();
         calendarItemEvent.setEventType(CalendarItemEvent.EVENT_TYPE.CREATED);
         CalendarItem calendarItem = new CalendarItem();
-        calendarItem.setId(777L);
+        calendarItem.setId(UUID.randomUUID());
         calendarItemEvent.setCalendarItem(calendarItem);
 
         service.calendarItemEventListener(calendarItemEvent);

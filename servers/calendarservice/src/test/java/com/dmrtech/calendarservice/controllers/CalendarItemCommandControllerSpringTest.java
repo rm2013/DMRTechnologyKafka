@@ -3,9 +3,7 @@ package com.dmrtech.calendarservice.controllers;
 
 import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 
 /**
@@ -59,7 +56,7 @@ public class CalendarItemCommandControllerSpringTest {
      * Parasoft Jtest UTA: Test for delete(Long)
      *
      * @author dferguson
-     * @see CalendarItemCommandController#delete(Long)
+     * @see CalendarItemCommandController#delete(java.util.UUID)
      */
     @Test(timeout = 1000)
     public void testDelete() throws Throwable {

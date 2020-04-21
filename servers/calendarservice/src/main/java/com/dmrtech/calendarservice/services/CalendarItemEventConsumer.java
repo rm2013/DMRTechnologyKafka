@@ -9,6 +9,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class CalendarItemEventConsumer {
@@ -50,18 +51,20 @@ public class CalendarItemEventConsumer {
             calendarItem.setAllDayEvent(incomingCalendarEvent.isAllDayEvent());
             calendarItem.setTitle(incomingCalendarEvent.getTitle());
             calendarItem.setDetails(incomingCalendarEvent.getDetails());
+            calendarItem.setCompleted(incomingCalendarEvent.isCompleted());
 
             logger.info("Saved calendar event: {}", calendarItem);
              calendarItemRepository.save(calendarItem);
         } else {
 
-            logger.info("Created calendar event {}", incomingCalendarEvent);
-            calendarItemRepository.save(incomingCalendarEvent);
+            logger.info("Creating calendar event {} with id {}", incomingCalendarEvent, incomingCalendarEvent.getID());
+           CalendarItem createdcalendarItem =  calendarItemRepository.save(incomingCalendarEvent);
+           logger.info("created calendar event {}, with id {}", createdcalendarItem, createdcalendarItem.getID());
         }
     }
 
     private void deleteCalendarEventHandler(CalendarItemEvent calendarItemEvent) {
-        Long calendarToDelete = calendarItemEvent.getCalendarItem().getID();
+        UUID calendarToDelete = calendarItemEvent.getCalendarItem().getID();
         logger.info("deleted item {}", calendarToDelete);
         calendarItemRepository.deleteById(calendarToDelete);
     }

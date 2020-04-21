@@ -1,37 +1,37 @@
 package com.dmrtech.calendarservice.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 public class CalendarItem {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private UUID id;
 
     private Date eventDate;
     private boolean allDayEvent;
     private String title;
     private String details;
+    private boolean completed;
 
-    public CalendarItem(Date eventDate, boolean allDayEvent, String title, String details) {
+    public CalendarItem(Date eventDate, boolean allDayEvent, String title, String details, boolean completed) {
         this.eventDate = eventDate;
         this.allDayEvent = allDayEvent;
         this.title = title;
         this.details = details;
+        this.completed = completed;
     }
 
     public CalendarItem() {
 
     }
 
-    public long getID() {
+    public UUID getID() {
         return id;
     }
-    public void setId(Long id) { this.id = id; }
+    public void setId(UUID id) { this.id = id; }
 
 
     public Date getDate() {
@@ -50,6 +50,9 @@ public class CalendarItem {
         this.allDayEvent = allDayEvent;
     }
 
+    public boolean isCompleted() {return completed; }
+    public void setCompleted(boolean completed) { this.completed = completed; }
+
     public String getTitle() {
         return title;
     }
@@ -66,4 +69,16 @@ public class CalendarItem {
         this.details = details;
     }
 
+
+    @Override
+    public String toString() {
+        return "CalendarItem{" +
+                "id=" + id +
+                ", eventDate=" + eventDate +
+                ", allDayEvent=" + allDayEvent +
+                ", title='" + title + '\'' +
+                ", details='" + details + '\'' +
+                ", completed=" + completed +
+                '}';
+    }
 }

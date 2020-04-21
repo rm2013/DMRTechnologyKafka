@@ -2,15 +2,16 @@ package com.dmrtech.calendarservice.payload.request;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
+import java.util.UUID;
 
 public class CalendarItemRequest {
-    private long id;
+    private UUID id;
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -46,9 +47,13 @@ public class CalendarItemRequest {
         this.details = details;
     }
 
+    public boolean isCompleted() {return completed; }
+    public void setCompleted(boolean completed) { this.completed = completed; }
+
     @NotBlank
     private Date eventDate;
     private boolean allDayEvent;
+    private boolean completed;
 
     @NotBlank
     private String title;

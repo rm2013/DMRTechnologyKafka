@@ -33,7 +33,7 @@ public class CalendarItemRepositoryTest {
         CalendarItem calendarItem = new CalendarItem(getNewYearsDay(2000),
                 true,
                 "new years",
-                "new millenium details");
+                "new millenium details", false);
         entityManager.persist(calendarItem);
         entityManager.flush();
 
@@ -52,7 +52,7 @@ public class CalendarItemRepositoryTest {
             CalendarItem calendarItem = new CalendarItem(getNewYearsDay(2000),
                     true,
                     "new years",
-                    "new millenium details");
+                    "new millenium details", false);
             entityManager.persist(calendarItem);
             entityManager.flush();
         }

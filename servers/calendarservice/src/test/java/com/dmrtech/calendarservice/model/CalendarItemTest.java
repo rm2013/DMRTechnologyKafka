@@ -4,6 +4,7 @@ package com.dmrtech.calendarservice.model;
 import org.junit.Test;
 
 import java.util.Date;
+import java.util.UUID;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -48,7 +49,7 @@ public class CalendarItemTest {
         CalendarItem underTest = new CalendarItem();
 
         // When
-        long result = underTest.getID();
+        UUID result = underTest.getID();
 
         // Then
         // assertEquals(0L, result);
@@ -58,7 +59,7 @@ public class CalendarItemTest {
      * Parasoft Jtest UTA: Test for setId(Long)
      *
      * @author dferguson
-     * @see CalendarItem#setId(Long)
+     * @see CalendarItem#setId(UUID)
      */
     @Test
     public void testSetId() throws Throwable {
@@ -66,7 +67,7 @@ public class CalendarItemTest {
         CalendarItem underTest = new CalendarItem();
 
         // When
-        Long id = 0L; // UTA: default value
+        UUID id = UUID.randomUUID(); // UTA: default value
         underTest.setId(id);
 
     }
@@ -119,7 +120,7 @@ public class CalendarItemTest {
         CalendarItem underTest = new CalendarItem();
 
         // When
-        long result = underTest.getID();
+        UUID result = underTest.getID();
 
         // Then
         // assertEquals(0L, result);
@@ -216,7 +217,7 @@ public class CalendarItemTest {
      * Parasoft Jtest UTA: Test for setId(Long)
      *
      * @author dferguson
-     * @see CalendarItem#setId(Long)
+     * @see CalendarItem#setId(UUID)
      */
     @Test(timeout = 1000)
     public void testSetId2() throws Throwable {
@@ -224,7 +225,7 @@ public class CalendarItemTest {
         CalendarItem underTest = new CalendarItem();
 
         // When
-        Long id = 0L; // UTA: default value
+        UUID id = new UUID(0L,0L); // UTA: default value
         underTest.setId(id);
 
     }

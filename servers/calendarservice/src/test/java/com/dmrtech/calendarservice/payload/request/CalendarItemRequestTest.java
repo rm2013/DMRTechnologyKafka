@@ -4,6 +4,7 @@ package com.dmrtech.calendarservice.payload.request;
 import org.junit.Test;
 
 import java.util.Date;
+import java.util.UUID;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -66,7 +67,7 @@ public class CalendarItemRequestTest {
         CalendarItemRequest underTest = new CalendarItemRequest();
 
         // When
-        long result = underTest.getId();
+        UUID result = underTest.getId();
 
         // Then
         // assertEquals(0L, result);
@@ -163,7 +164,7 @@ public class CalendarItemRequestTest {
      * Parasoft Jtest UTA: Test for setId(long)
      *
      * @author dferguson
-     * @see CalendarItemRequest#setId(long)
+     * @see CalendarItemRequest#setId(UUID)
      */
     @Test(timeout = 1000)
     public void testSetId() throws Throwable {
@@ -171,7 +172,7 @@ public class CalendarItemRequestTest {
         CalendarItemRequest underTest = new CalendarItemRequest();
 
         // When
-        long id = 0L; // UTA: default value
+        UUID id = new UUID(0L, 0L); // UTA: default value
         underTest.setId(id);
 
     }

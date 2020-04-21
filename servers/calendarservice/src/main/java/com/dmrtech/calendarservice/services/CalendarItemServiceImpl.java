@@ -9,7 +9,7 @@ public class CalendarItemServiceImpl implements CalendarItemService {
 
     @Override
     public CalendarItem generateFromRequest(CalendarItemRequest calendarItemRequest) {
-        CalendarItem calendarItem = new CalendarItem(calendarItemRequest.getDate(), calendarItemRequest.isAllDayEvent(), calendarItemRequest.getTitle(), calendarItemRequest.getDetails());
+        CalendarItem calendarItem = new CalendarItem(calendarItemRequest.getDate(), calendarItemRequest.isAllDayEvent(), calendarItemRequest.getTitle(), calendarItemRequest.getDetails(), calendarItemRequest.isCompleted());
         calendarItem.setId(calendarItemRequest.getId());
         return calendarItem;
     }

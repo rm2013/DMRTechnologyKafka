@@ -64,11 +64,16 @@ Authorization: Bearer {{AUTH_TOKEN}}
 
 ###
 
-PUT http://localhost:9001/api/calendaritems/1
+PUT http://localhost:9001/api/calendaritems/77b65c41-c318-4a12-98ea-8fb447cd51f8
 Authorization: Bearer {{AUTH_TOKEN}}
 Content-Type: application/json
 
-{"title":"test addoueaeu","date":"2020-03-13T02:29:52.710Z","completed":false}
+{"title":"test 2112442","date":"2020-03-13T02:29:52.710Z","completed":false}
+
+###
+GET http://localhost:9001/api/calendaritems/77b65c41-c318-4a12-98ea-8fb447cd51f8
+Authorization: Bearer {{AUTH_TOKEN}}
+Content-Type: application/json
 
 ###
 POST http://localhost:9001/api/calendaritems/
