@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Field;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.nullable;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -40,6 +42,10 @@ public class AuthTokenFilterTest {
         FilterChain filterChain = mock(FilterChain.class);
         underTest.doFilterInternal(request, response, filterChain);
 
+        assertNotNull(response);
+        String s = response.getHeader("X");
+        assertNotNull(s);
+        assertEquals("XYZ",s);
     }
 
     /**
@@ -70,7 +76,7 @@ public class AuthTokenFilterTest {
      */
     private static HttpServletResponse mockHttpServletResponse() throws Throwable {
         HttpServletResponse response = mock(HttpServletResponse.class);
-        String getHeaderResult2 = ""; // UTA: default value
+        String getHeaderResult2 = "XYZ"; // UTA: default value
         when(response.getHeader(nullable(String.class))).thenReturn(getHeaderResult2);
         return response;
     }

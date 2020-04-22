@@ -23,11 +23,13 @@ public class CalendarItemEventTest {
     public void testGetCalendarItem() throws Throwable {
         // Given
         CalendarItemEvent underTest = new CalendarItemEvent();
+        CalendarItem ci = new CalendarItem();
+        underTest.setCalendarItem(ci);
 
         // When
         CalendarItem result = underTest.getCalendarItem();
 
         // Then
-        // assertNotNull(result);
+        assertNotNull(result);
     }
 }

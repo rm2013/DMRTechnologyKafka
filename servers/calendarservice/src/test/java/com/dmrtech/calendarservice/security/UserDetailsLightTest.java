@@ -3,6 +3,7 @@ package com.dmrtech.calendarservice.security;
 
 import org.junit.Test;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.Collection;
 
@@ -35,9 +36,11 @@ public class UserDetailsLightTest {
         Collection<? extends GrantedAuthority> result = underTest.getAuthorities();
 
         // Then
-        // assertNotNull(result);
-        // assertEquals(0, result.size());
-        // assertTrue(result.contains(null));
+        assertNotNull(result);
+        Object[] o = result.toArray();
+        SimpleGrantedAuthority sga = (SimpleGrantedAuthority) o[0];
+        assertEquals(1, result.size());
+        assertEquals("USER", sga.getAuthority());
     }
 
     /**
@@ -49,14 +52,14 @@ public class UserDetailsLightTest {
     @Test(timeout = 1000)
     public void testGetPassword() throws Throwable {
         // Given
-        String username = ""; // UTA: default value
+        String username = "abc"; // UTA: default value
         UserDetailsLight underTest = new UserDetailsLight(username);
 
         // When
         String result = underTest.getPassword();
 
         // Then
-        // assertEquals("", result);
+        assertEquals("password", result);
     }
 
     /**
@@ -68,14 +71,14 @@ public class UserDetailsLightTest {
     @Test(timeout = 1000)
     public void testGetUsername() throws Throwable {
         // Given
-        String username = ""; // UTA: default value
+        String username = "abc"; // UTA: default value
         UserDetailsLight underTest = new UserDetailsLight(username);
 
         // When
         String result = underTest.getUsername();
 
         // Then
-        // assertEquals("", result);
+        assertEquals("abc", result);
     }
 
     /**
@@ -94,7 +97,7 @@ public class UserDetailsLightTest {
         boolean result = underTest.isAccountNonExpired();
 
         // Then
-        // assertFalse(result);
+        assertTrue(result);
     }
 
     /**
@@ -113,7 +116,7 @@ public class UserDetailsLightTest {
         boolean result = underTest.isAccountNonLocked();
 
         // Then
-        // assertFalse(result);
+        assertTrue(result);
     }
 
     /**
@@ -132,7 +135,7 @@ public class UserDetailsLightTest {
         boolean result = underTest.isCredentialsNonExpired();
 
         // Then
-        // assertFalse(result);
+        assertTrue(result);
     }
 
     /**
@@ -151,6 +154,6 @@ public class UserDetailsLightTest {
         boolean result = underTest.isEnabled();
 
         // Then
-        // assertFalse(result);
+        assertTrue(result);
     }
 }

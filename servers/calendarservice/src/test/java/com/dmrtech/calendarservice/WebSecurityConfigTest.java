@@ -42,7 +42,7 @@ public class WebSecurityConfigTest {
         AuthTokenFilter result = underTest.authenticationJwtTokenFilter();
 
         // Then
-        // assertNotNull(result);
+        assertNotNull(result);
     }
 
     /**
@@ -107,6 +107,6 @@ public class WebSecurityConfigTest {
         PasswordEncoder result = underTest.passwordEncoder();
 
         // Then
-        // assertNotNull(result);
+        assertNotNull(result);
     }
 }

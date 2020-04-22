@@ -7,6 +7,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 
 /**
@@ -29,9 +30,10 @@ public class KafkaProducerConfigTest {
 
         // When
         ProducerFactory<String, CalendarItemEvent> result = underTest.calendarItemEventProducerFactory();
-
         // Then
-        // assertNotNull(result);
+        assertNotNull(result);
+        assertTrue(result.isProducerPerConsumerPartition());
+        assertTrue(!result.transactionCapable());
     }
 
     /**
@@ -49,6 +51,10 @@ public class KafkaProducerConfigTest {
         KafkaTemplate<String, CalendarItemEvent> result = underTest.kafkaTemplate();
 
         // Then
-        // assertNotNull(result);
+        assertNotNull(result);
+        assertTrue(!result.inTransaction());
+        assertTrue(!result.isAllowNonTransactional());
+        assertTrue(!result.isTransactional());
+
     }
 }
