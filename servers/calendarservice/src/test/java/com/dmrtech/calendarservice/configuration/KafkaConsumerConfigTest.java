@@ -36,7 +36,10 @@ public class KafkaConsumerConfigTest {
         Map<String, Object> result = underTest.consumerConfigs();
 
         // Then
-        // assertNotNull(result);
+        assertNotNull(result);
+        Object o = result.get("group.id");
+        assertNotNull(o);
+        assertEquals(40, o.toString().length());
         // assertEquals(0, result.size());
         // assertTrue(result.containsKey(""));
         // assertTrue(result.containsValue(null));
@@ -57,7 +60,13 @@ public class KafkaConsumerConfigTest {
         ConsumerFactory<String, CalendarItemEvent> result = underTest.consumerFactory();
 
         // Then
-        // assertNotNull(result);
+        assertNotNull(result);
+        Map<String, Object> configurationProperties = result.getConfigurationProperties();
+        assertNotNull(configurationProperties);
+        Object o = configurationProperties.get("group.id");
+        assertNotNull(o);
+        assertEquals(40, o.toString().length());
+
     }
 
     /**
@@ -75,6 +84,7 @@ public class KafkaConsumerConfigTest {
         KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, CalendarItemEvent>> result = underTest.kafkaListenerContainerFactory();
 
         // Then
-        // assertNotNull(result);
+        assertNotNull(result);
+
     }
 }

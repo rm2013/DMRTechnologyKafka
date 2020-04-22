@@ -2,10 +2,14 @@ package com.dmrtech.calendarservice.configuration;
 
 
 import org.apache.kafka.clients.admin.NewTopic;
+import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.kafka.core.KafkaAdmin;
 
+import java.util.Map;
+
 import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -30,7 +34,9 @@ public class KafkaTopicConfigTest {
         NewTopic result = underTest.calendarItems();
 
         // Then
-        // assertNotNull(result);
+        assertNotNull(result);
+        assertEquals(1,result.numPartitions());
+        assertEquals(1,result.replicationFactor());
     }
 
     /**
@@ -48,6 +54,9 @@ public class KafkaTopicConfigTest {
         KafkaAdmin result = underTest.kafkaAdmin();
 
         // Then
-        // assertNotNull(result);
+        assertNotNull(result);
+        Map<String, Object> config = result.getConfig();
+        assertNotNull(config);
+        Assert.assertTrue(config.containsKey("bootstrap.servers"));
     }
 }

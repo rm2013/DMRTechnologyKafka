@@ -8,6 +8,7 @@ import java.util.Date;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 
 
@@ -28,12 +29,15 @@ public class CalendarItemTest {
     public void testGetDate() throws Throwable {
         // Given
         CalendarItem underTest = new CalendarItem();
+        Date d = new Date();
+        underTest.setDate(d);
 
         // When
         Date result = underTest.getDate();
 
         // Then
-        // assertNotNull(result);
+        assertNotNull(result);
+        assertEquals(d, result);
     }
 
     /**
@@ -46,47 +50,13 @@ public class CalendarItemTest {
     public void testGetID() throws Throwable {
         // Given
         CalendarItem underTest = new CalendarItem();
+        underTest.setId(444L);
 
         // When
         long result = underTest.getID();
 
         // Then
-        // assertEquals(0L, result);
-    }
-
-    /**
-     * Parasoft Jtest UTA: Test for setId(Long)
-     *
-     * @author dferguson
-     * @see CalendarItem#setId(Long)
-     */
-    @Test
-    public void testSetId() throws Throwable {
-        // Given
-        CalendarItem underTest = new CalendarItem();
-
-        // When
-        Long id = 0L; // UTA: default value
-        underTest.setId(id);
-
-    }
-
-    /**
-     * Parasoft Jtest UTA: Test for getDate()
-     *
-     * @author dferguson
-     * @see CalendarItem#getDate()
-     */
-    @Test(timeout = 1000)
-    public void testGetDate2() throws Throwable {
-        // Given
-        CalendarItem underTest = new CalendarItem();
-
-        // When
-        Date result = underTest.getDate();
-
-        // Then
-        // assertNotNull(result);
+        assertEquals(444L, result);
     }
 
     /**
@@ -99,30 +69,13 @@ public class CalendarItemTest {
     public void testGetDetails() throws Throwable {
         // Given
         CalendarItem underTest = new CalendarItem();
+        underTest.setDetails("test string");
 
         // When
         String result = underTest.getDetails();
 
         // Then
-        // assertEquals("", result);
-    }
-
-    /**
-     * Parasoft Jtest UTA: Test for getID()
-     *
-     * @author dferguson
-     * @see CalendarItem#getID()
-     */
-    @Test(timeout = 1000)
-    public void testGetID2() throws Throwable {
-        // Given
-        CalendarItem underTest = new CalendarItem();
-
-        // When
-        long result = underTest.getID();
-
-        // Then
-        // assertEquals(0L, result);
+        assertEquals("test string", result);
     }
 
     /**
@@ -135,12 +88,13 @@ public class CalendarItemTest {
     public void testGetTitle() throws Throwable {
         // Given
         CalendarItem underTest = new CalendarItem();
+        underTest.setTitle("title");
 
         // When
         String result = underTest.getTitle();
 
         // Then
-        // assertEquals("", result);
+        assertEquals("title", result);
     }
 
     /**
@@ -153,96 +107,13 @@ public class CalendarItemTest {
     public void testIsAllDayEvent() throws Throwable {
         // Given
         CalendarItem underTest = new CalendarItem();
+        underTest.setAllDayEvent(true);
 
         // When
         boolean result = underTest.isAllDayEvent();
 
         // Then
-        // assertFalse(result);
+        assertTrue(result);
     }
 
-    /**
-     * Parasoft Jtest UTA: Test for setAllDayEvent(boolean)
-     *
-     * @author dferguson
-     * @see CalendarItem#setAllDayEvent(boolean)
-     */
-    @Test(timeout = 1000)
-    public void testSetAllDayEvent() throws Throwable {
-        // Given
-        CalendarItem underTest = new CalendarItem();
-
-        // When
-        boolean allDayEvent = false; // UTA: default value
-        underTest.setAllDayEvent(allDayEvent);
-
-    }
-
-    /**
-     * Parasoft Jtest UTA: Test for setDate(Date)
-     *
-     * @author dferguson
-     * @see CalendarItem#setDate(Date)
-     */
-    @Test(timeout = 1000)
-    public void testSetDate() throws Throwable {
-        // Given
-        CalendarItem underTest = new CalendarItem();
-
-        // When
-        Date eventDate = mock(Date.class);
-        underTest.setDate(eventDate);
-
-    }
-
-    /**
-     * Parasoft Jtest UTA: Test for setDetails(String)
-     *
-     * @author dferguson
-     * @see CalendarItem#setDetails(String)
-     */
-    @Test(timeout = 1000)
-    public void testSetDetails() throws Throwable {
-        // Given
-        CalendarItem underTest = new CalendarItem();
-
-        // When
-        String details = ""; // UTA: default value
-        underTest.setDetails(details);
-
-    }
-
-    /**
-     * Parasoft Jtest UTA: Test for setId(Long)
-     *
-     * @author dferguson
-     * @see CalendarItem#setId(Long)
-     */
-    @Test(timeout = 1000)
-    public void testSetId2() throws Throwable {
-        // Given
-        CalendarItem underTest = new CalendarItem();
-
-        // When
-        Long id = 0L; // UTA: default value
-        underTest.setId(id);
-
-    }
-
-    /**
-     * Parasoft Jtest UTA: Test for setTitle(String)
-     *
-     * @author dferguson
-     * @see CalendarItem#setTitle(String)
-     */
-    @Test(timeout = 1000)
-    public void testSetTitle() throws Throwable {
-        // Given
-        CalendarItem underTest = new CalendarItem();
-
-        // When
-        String title = ""; // UTA: default value
-        underTest.setTitle(title);
-
-    }
 }
