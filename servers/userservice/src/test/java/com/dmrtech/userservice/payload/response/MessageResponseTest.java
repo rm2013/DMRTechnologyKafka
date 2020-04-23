@@ -22,31 +22,14 @@ public class MessageResponseTest {
     @Test(timeout = 1000)
     public void testGetMessage() throws Throwable {
         // Given
-        String message = ""; // UTA: default value
+        String message = "xxx"; // UTA: default value
         MessageResponse underTest = new MessageResponse(message);
 
         // When
         String result = underTest.getMessage();
 
         // Then
-        // assertEquals("", result);
+        assertEquals("xxx", result);
     }
-/**
- * Parasoft Jtest UTA: Test for setMessage(String)
- *
- * @see MessageResponse#setMessage(String)
- * @author dferguson
- */
-@Test(timeout=1000)
-public void testSetMessage() throws Throwable
-{
-    // Given
-    String message = ""; // UTA: default value
-    MessageResponse underTest = new MessageResponse(message);
 
-    // When
-    String message2 = ""; // UTA: default value
-    underTest.setMessage(message2);
-
-}
 }
