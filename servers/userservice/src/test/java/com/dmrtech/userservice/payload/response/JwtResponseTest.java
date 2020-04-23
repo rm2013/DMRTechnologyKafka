@@ -22,17 +22,17 @@ public class JwtResponseTest {
     @Test(timeout = 1000)
     public void testGetAccessToken() throws Throwable {
         // Given
-        String accessToken = ""; // UTA: default value
+        String accessToken = "xxx"; // UTA: default value
         Long id = 0L; // UTA: default value
-        String username = ""; // UTA: default value
-        String email = ""; // UTA: default value
+        String username = "yyy"; // UTA: default value
+        String email = "zzz"; // UTA: default value
         JwtResponse underTest = new JwtResponse(accessToken, id, username, email);
 
         // When
         String result = underTest.getAccessToken();
 
         // Then
-        // assertEquals("", result);
+        assertEquals("xxx", result);
     }
 
     /**
@@ -47,14 +47,14 @@ public class JwtResponseTest {
         String accessToken = ""; // UTA: default value
         Long id = 0L; // UTA: default value
         String username = ""; // UTA: default value
-        String email = ""; // UTA: default value
+        String email = "xxx"; // UTA: default value
         JwtResponse underTest = new JwtResponse(accessToken, id, username, email);
 
         // When
         String result = underTest.getEmail();
 
         // Then
-        // assertEquals("", result);
+        assertEquals("xxx", result);
     }
 
     /**
@@ -67,7 +67,7 @@ public class JwtResponseTest {
     public void testGetId() throws Throwable {
         // Given
         String accessToken = ""; // UTA: default value
-        Long id = 0L; // UTA: default value
+        Long id = 55L; // UTA: default value
         String username = ""; // UTA: default value
         String email = ""; // UTA: default value
         JwtResponse underTest = new JwtResponse(accessToken, id, username, email);
@@ -76,7 +76,7 @@ public class JwtResponseTest {
         Long result = underTest.getId();
 
         // Then
-        // assertEquals(0L, result.longValue());
+        assertEquals(55L, result.longValue());
     }
 
     /**
@@ -98,7 +98,7 @@ public class JwtResponseTest {
         String result = underTest.getTokenType();
 
         // Then
-        // assertEquals("", result);
+        assertEquals("Bearer", result);
     }
 
     /**
@@ -112,7 +112,7 @@ public class JwtResponseTest {
         // Given
         String accessToken = ""; // UTA: default value
         Long id = 0L; // UTA: default value
-        String username = ""; // UTA: default value
+        String username = "xxx"; // UTA: default value
         String email = ""; // UTA: default value
         JwtResponse underTest = new JwtResponse(accessToken, id, username, email);
 
@@ -120,111 +120,7 @@ public class JwtResponseTest {
         String result = underTest.getUsername();
 
         // Then
-        // assertEquals("", result);
+        assertEquals("xxx", result);
     }
 
-    /**
-     * Parasoft Jtest UTA: Test for setAccessToken(String)
-     *
-     * @author dferguson
-     * @see JwtResponse#setAccessToken(String)
-     */
-    @Test(timeout = 1000)
-    public void testSetAccessToken() throws Throwable {
-        // Given
-        String accessToken = ""; // UTA: default value
-        Long id = 0L; // UTA: default value
-        String username = ""; // UTA: default value
-        String email = ""; // UTA: default value
-        JwtResponse underTest = new JwtResponse(accessToken, id, username, email);
-
-        // When
-        String accessToken2 = ""; // UTA: default value
-        underTest.setAccessToken(accessToken2);
-
-    }
-
-    /**
-     * Parasoft Jtest UTA: Test for setEmail(String)
-     *
-     * @author dferguson
-     * @see JwtResponse#setEmail(String)
-     */
-    @Test(timeout = 1000)
-    public void testSetEmail() throws Throwable {
-        // Given
-        String accessToken = ""; // UTA: default value
-        Long id = 0L; // UTA: default value
-        String username = ""; // UTA: default value
-        String email = ""; // UTA: default value
-        JwtResponse underTest = new JwtResponse(accessToken, id, username, email);
-
-        // When
-        String email2 = ""; // UTA: default value
-        underTest.setEmail(email2);
-
-    }
-
-    /**
-     * Parasoft Jtest UTA: Test for setId(Long)
-     *
-     * @author dferguson
-     * @see JwtResponse#setId(Long)
-     */
-    @Test(timeout = 1000)
-    public void testSetId() throws Throwable {
-        // Given
-        String accessToken = ""; // UTA: default value
-        Long id = 0L; // UTA: default value
-        String username = ""; // UTA: default value
-        String email = ""; // UTA: default value
-        JwtResponse underTest = new JwtResponse(accessToken, id, username, email);
-
-        // When
-        Long id2 = 0L; // UTA: default value
-        underTest.setId(id2);
-
-    }
-
-    /**
-     * Parasoft Jtest UTA: Test for setTokenType(String)
-     *
-     * @author dferguson
-     * @see JwtResponse#setTokenType(String)
-     */
-    @Test(timeout = 1000)
-    public void testSetTokenType() throws Throwable {
-        // Given
-        String accessToken = ""; // UTA: default value
-        Long id = 0L; // UTA: default value
-        String username = ""; // UTA: default value
-        String email = ""; // UTA: default value
-        JwtResponse underTest = new JwtResponse(accessToken, id, username, email);
-
-        // When
-        String tokenType = ""; // UTA: default value
-        underTest.setTokenType(tokenType);
-
-    }
-
-    /**
-     * Parasoft Jtest UTA: Test for setUsername(String)
-     *
-     * @author dferguson
-     * @see JwtResponse#setUsername(String)
-     */
-    @Test(timeout = 1000)
-    public void testSetUsername() throws Throwable {
-        // Given
-        String accessToken = ""; // UTA: default value
-        Long id = 0L; // UTA: default value
-        String username = ""; // UTA: default value
-        String email = ""; // UTA: default value
-        JwtResponse underTest = new JwtResponse(accessToken, id, username, email);
-
-        // When
-        String username2 = ""; // UTA: default value
-        underTest.setUsername(username2);
-
-    }
 }

@@ -3,6 +3,8 @@ package com.dmrtech.userservice.model;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 
 /**
  * Parasoft Jtest UTA: Test class for User
@@ -27,6 +29,8 @@ public void testSetId() throws Throwable
     // When
     Long id = 0L; // UTA: default value
     underTest.setId(id);
+    Long retVal = underTest.getId();
+    assertEquals(id, retVal);
 
 }
 
@@ -44,6 +48,8 @@ public void testSetId() throws Throwable
         // When
         String username = ""; // UTA: default value
         underTest.setUsername(username);
+        String retVal = underTest.getUsername();
+        assertEquals(username, retVal);
 
     }
 
@@ -61,6 +67,8 @@ public void testSetId() throws Throwable
         // When
         String email = ""; // UTA: default value
         underTest.setEmail(email);
+        String retVal = underTest.getEmail();
+        assertEquals(email, retVal);
 
     }
 
@@ -78,6 +86,9 @@ public void testSetId() throws Throwable
         // When
         String password = ""; // UTA: default value
         underTest.setPassword(password);
+        String retVal = underTest.getPassword();
+        assertEquals(password, retVal);
 
     }
+
 }
