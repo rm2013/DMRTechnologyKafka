@@ -17,7 +17,7 @@ spring:
     driverClassName: org.h2.Driver
 
 kafka:
-  kafkaBroker: localhost:9092
+  kafkaBroker: kafka:9092
   calendarItemTopicName: calendar-items
   consumerGroupName: calendar-items-event-consumer
 
